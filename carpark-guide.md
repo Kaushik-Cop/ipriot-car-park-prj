@@ -477,17 +477,18 @@ Answer the following questions:
 >
 > 1. **Which class is responsible for each of the following pieces of information (and why)?**
 >    - *The number of available bays*
->      `Answer here...`
+>      `Carpark class as it knows the capacity `
 >    - *The current temperature*
->      `Answer here...`
+>      `Sensor class as it measures temparature`
 >    - *The time*
->      `Answer here...`
+>      `None as the system provide the time`
 >
 > 2. **What is the difference between an attribute and a property?**
->    `Answer here...`
+>    `Attributes are always serialized to HTML whereas property is not`
 >
 > 3. **Why do you think we used a dictionary to hold the data we passed the display? List at least one advantage and one disadvantage of this approach.**
->    `Answer here...`
+>    `Adv: A dictionary groups all relevant data into a single, flexible structure that can easily be extended with more keys
+>     Disadv: It lacks type safety and can make code harder to trace compared to explicit parameters.`
 
 #### 2.7.5. Add a detect vehicle method to the Sensor class
 
