@@ -391,11 +391,11 @@ For example, you may want to see the number of available bays, the current tempe
 Now consider, between the `CarPark`, `Sensor`, and `Display` classes, which class is responsible for each piece of information? There's no right or wrong answer here. But you should be able to justify your answer.
 
 >Q. Which class is responsible for the number of available bays (and why)?
->
+> Carpark because car park knows the capacity of cars
 >Q. Which class is responsible for the current temperature (and why)?
->
+> Sensor class measures the current temparature
 >Q. Which class is responsible for the time (and why)?
->
+> None as time is based on internal time on the pc
 --------
 
 ##### 2.7.3.1. Detour: implement available bays
