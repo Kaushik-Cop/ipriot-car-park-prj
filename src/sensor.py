@@ -16,9 +16,9 @@ class Sensor:
     def scan_plate(self):
         return 'FAKE-' + format(random.randint(0, 999), "03d")
 
-    def detect_vehicle(self):
-
-        plate = self.scan_plate()
+    def detect_vehicle(self, plate=None):
+        if plate is None:
+            plate = self.scan_plate()
         self.update_car_park(plate)
 
 class EntrySensor(Sensor):
