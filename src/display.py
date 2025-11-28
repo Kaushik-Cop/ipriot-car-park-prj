@@ -6,7 +6,7 @@ class Display:
 
     def update(self, carpark):
 
-        spaces_left = carpark.capacity - len(carpark.plates)
+        spaces_left = carpark.available_bays
         if spaces_left > 0:
             self.message = f"{spaces_left} spaces available"
         else:
@@ -15,7 +15,8 @@ class Display:
 
     def update(self, data):
         for key, value in data.items():
-            print(f"{key}: {value}")
+            if hasattr(self, key):
+                setattr(self, key, value)
     def __str__(self):
         return f"Display {self.id}: {self.message}"
 

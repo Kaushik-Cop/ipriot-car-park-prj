@@ -8,6 +8,7 @@ class CarPark:
         self.plates = plates or []
         self.displays = displays or []
 
+
     def register(self, component):
         if not isinstance(component, (Sensor, Display)):
             raise TypeError("Object must be a Sensor or Display")
@@ -19,23 +20,25 @@ class CarPark:
             self.displays.append(component)
 
     def add_car(self, plate):
-        self.plates.append(plate)
+        if self.available_bays > 0:
+            self.plates.append(plate)
         self.update_displays()
 
     def remove_car(self, plate):
-        if plate in self.plates:
-            self.plates.remove(plate)
+        if plate not in self.plates:
+            raise ValueError(f"Car {plate} is not found")
+        self.plates.remove(plate)
+
         self.update_displays()
 
     def update_displays(self):
         for display in self.displays:
             display.update(self)
 
+    @property
     def available_bays(self):
-        bays = self.capacity - len(self.plates)
-        if bays < 0:
-            bays = 0
-        return bays
+        return max(self.capacity - len(self.plates), 0)
+
 
     def update_display(self, display):
         data ={"available_bays": self.available_bays, "temperature": 25}
